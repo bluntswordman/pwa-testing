@@ -1,0 +1,386 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 
+  Skip Link 
+*/
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* 
+  Back To Top
+*/
+
+#btn-back-top {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 44px;
+  height: 44px;
+  border-radius: 25px;
+  position: fixed;
+  bottom: 80px;
+  right: 23px;
+  transition: background-color .3s, 
+  opacity .5s, visibility .3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#btn-back-top::after {
+  content: url('https://api.iconify.design/fa-solid/arrow-up.svg?color=white&height=26');
+  color: #fff;
+}
+
+#btn-back-top:hover {
+  cursor: pointer;
+  background-color: rgb(109, 109, 109);
+}
+
+#btn-back-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*
+  AppBar
+*/
+ 
+.app-bar {
+  padding: 8px 16px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+ 
+.app-bar .app-bar__menu {
+  display: flex;
+  align-items: center;
+}
+ 
+.app-bar .app-bar__menu button {
+  background-color: transparent;
+  border: none;
+  padding: 22px;
+  cursor: pointer;
+}
+
+.app-bar .app-bar__menu button .hamburger-button__icon {
+  content: url('https://api.iconify.design/gg/menu-hotdog.svg?color=darkorange&height=44');
+  width: 44px;
+  left: 15px;
+  top: 8px;
+  position: absolute;
+}
+ 
+.app-bar .app-bar__brand {
+  display: flex;
+  align-items: center;
+}
+ 
+.app-bar .app-bar__brand h1 {
+  color: darkorange;
+  font-size: 22px;
+}
+ 
+.app-bar .app-bar__navigation {
+  position: absolute;
+  top: 50px;
+  left: -180px;
+  width: 150px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: inherit;
+  overflow: hidden;
+}
+ 
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+ 
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 12px;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+/* 
+  Hero Section
+*/
+
+.hero {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6)), url('../public/img/sm-hero.jpg');
+  display: flex;
+  align-items: center;
+  min-height: 330px;
+  width: 100%;
+  text-align: center;
+  background-position: center;
+}
+
+/* 
+  Main
+*/
+
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 
+  content Main
+*/
+
+.content {
+  padding: 32px;
+}
+
+.content .content__heading {
+  text-align: center;
+  padding: 25px;
+}
+
+.content .content__card {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.content .content__card .content-article {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.content .content__card .content-article .star-rating {
+  position: absolute;
+  width: fit-content;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  background: rgb(235, 235, 235);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+  transition: background-color .8s;
+  border-radius: 20px;
+}
+
+.content .content__card .content-article .star-rating:hover {
+  background: rgb(211, 211, 211);
+}
+
+.content .content__card .content-article .star-rating::before {
+  padding: 0 7px;
+  content: '\2605';
+  color: orange;
+  position: absolute;
+}
+
+.content .content__card .content-article .star-rating p {
+  padding: 0 13px 0 25px;
+}
+
+.content .content__card .content-article .content-img {
+  max-width: 100%;
+}
+
+.content .content__card .content-article .content-item {
+  padding: 10px;
+  font-weight: 100;
+}
+
+.content .content__card .content-article .content-item .item-title {
+  padding-bottom: 2px;
+}
+
+.content .content__card .content-article .content-item .item-title a {
+  text-decoration: none;
+  color: inherit;
+  transition: .3s;
+  padding: 10px 0;
+}
+
+.content .content__card .content-article .content-item .item-title a:hover{
+  opacity: 0.5;
+}
+
+.content .content__card .content-article .content-item .item-city {
+  font-style: italic;
+  font-weight: 500;
+  padding-bottom: 2px;
+}
+
+.content .content__card .content-article .content-item .item-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 
+  content Detail
+*/
+
+.detail {
+  padding: 30px;
+}
+
+.detail .card-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.detail .card-detail .detail-article {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.detail .card-detail .detail-article .detail-image {
+  max-width: 100%;
+}
+
+.detail .card-detail .detail-article h3 {
+  text-align: center;
+}
+
+.detail .card-detail .detail-article h4 {
+  font-size: 13px;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.detail-article .location-icon {
+  content: url('https://api.iconify.design/codicon/location.svg?color=%23699bf7&height=30');
+}
+
+.detail .card-detail .detail-article p {
+  text-align: center;
+  font-style: italic;
+  padding: 15px;
+}
+
+.detail .card-detail .menu {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+  padding: 20px;
+}
+
+.detail .card-detail .menu .menu-food {
+  display: flex;
+}
+
+.detail .card-detail .menu .menu-food .food-list {
+  padding: 0 30px;
+}
+
+.menu .food-icon {
+  width: 100px;
+  content: url('https://api.iconify.design/ion/fast-food-outline.svg?color=%23699bf7&height=30');
+}
+
+.menu .drink-icon {
+  width: 100px;
+  content: url('https://api.iconify.design/fluent/drink-beer-24-regular.svg?color=%23699bf7&height=30');
+}
+
+/* 
+  Review
+*/
+
+.detail .card-detail .review-article{
+  max-width: 500px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.detail .card-detail .review-article .card-review {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.detail .card-detail .review-article .card-review p{
+  font-style: italic;
+  font-weight: 100;
+}
+
+.detail .input-review {
+  text-align: center;
+  padding: 15px;
+}
+
+.detail .input-review .form-review .btn-review {
+  border-radius: 20px;
+}
+
+/*
+   Like
+*/
+
+.like {
+  font-size: 18px;
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #db0000;
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 
+  Footer
+*/
+
+footer {
+  text-align: center;
+  background: rgb(255, 250, 243);
+}
